@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%;">
+<html lang="zh" style="height: 100%;">  <!-- 优化：添加 lang 属性以指定页面语言为中文 -->
 
 <!-------- 禁止格式化本文档！-------->
 
@@ -382,8 +382,13 @@ showcm(event,id,arg) 显示右键菜单，使用方法：oncontextmenu="return s
 				</a>
 				<a oncontextmenu="return showcm(event, 'smlapp', ['wsa', '适用于 Android™️ 的 Windows 子系统'])"
 					onclick="openapp('wsa');hide_startmenu();">
-					<img src="icon/wsa.png">
+					<img src="icon/wsa.svg">
 					<p>适用于 Android™️ 的 Windows 子系统</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['ubuntu', '适用于 Ubuntu 的 Windows 子系统'])"
+					onclick="openapp('ubuntu');hide_startmenu();">
+					<img src="icon/ubuntu.svg">
+					<p>适用于 Ubuntu 的 Windows 子系统</p>
 				</a>
 				<a oncontextmenu="return showcm(event, 'smlapp', ['windows12', 'Windows 12'])"
 					onclick="openapp('windows12');hide_startmenu();">
@@ -1403,7 +1408,7 @@ showcm(event,id,arg) 显示右键菜单，使用方法：oncontextmenu="return s
 				<input type="text" class="input" placeholder="查找设置" style="padding-left: 30px;">
 				<input-before class="bi bi-search"></input-before>
 				<list class="focs"><!--压缩行数-->
-					<a class="enable home check" onclick="apps.setting.page('home')"><img src="apps/icons/setting/home.png">主页</a><!-- 主页  by lh11117 @github.com (20239/31~2023/10/1) -->
+					<a class="enable home check" onclick="apps.setting.page('home')"><img src="apps/icons/setting/home.png">主页</a><!-- 主页  by lh11117 @github.com (2023/9/31~2023/10/1) -->
 					<a class="enable system" onclick="apps.setting.page('system')"><img src="apps/icons/setting/system.png">系统</a>
 					<a class="enable blueteeth" onclick="apps.setting.page('blueteeth')"><img src="apps/icons/setting/blueteeth.png">蓝牙和其他设备</a><!-- 蓝牙与设备  @Junchen Yi 2023-9-9-->
 					<a class="enable network" onclick="apps.setting.page('network')"><img src="apps/icons/setting/network.png">网络和 Internet</a><!-- 网络和 Internet  @Junchen Yi 2023-9-10-->
@@ -1639,7 +1644,7 @@ showcm(event,id,arg) 显示右键菜单，使用方法：oncontextmenu="return s
 					<div class="setting-list">
 						<a><icon></icon><div><p>您的微软账户</p><p>订阅、账单等</p></div><i class="bi bi-chevron-right"></i></a>
 						<a><icon></icon><div><p>您的账户信息</p><p>电子邮件、日历和联系人使用的帐户</p></div><i class="bi bi-chevron-right"></i></a>
-						<a><icon></icon><div><p>登录选项</p><p>Windows Hello、安全密钥、密码、动态锁</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>登陆选项</p><p>Windows Hello、安全密钥、密码、动态锁</p></div><i class="bi bi-chevron-right"></i></a>
 						<a><icon></icon><div><p>电子邮件和账户</p><p>电子邮件、日历和联系人使用的帐户</p></div><i class="bi bi-chevron-right"></i></a>
 						<a><icon></icon><div><p>家庭</p><p>管理您的家庭群组、编辑帐户类型和设备权限</p></div><i class="bi bi-chevron-right"></i></a>
 						<a><icon></icon><div><p>Windows 备份</p><p>备份您的文件、应用程序、首选项以跨设备恢复它们</p></div><i class="bi bi-chevron-right"></i></a>
@@ -1952,6 +1957,10 @@ showcm(event,id,arg) 显示右键菜单，使用方法：oncontextmenu="return s
 			<div class="cnt update">
 				<h1 class="tit"><span></span>更新记录</h1>
 				<div style="margin-left: 20px;">
+					<details><summary><span>v7.5.0</span> Ubuntu子系统</summary><p>
+						&emsp;&emsp;- (更新来自 @Orange1113)</p>
+						&emsp;&emsp;- 新增了Ubuntu子系统</p>
+					</details>
 					<details><summary><span>v7.4.2</span> AI Copilot 3.0！</summary><p>
 						&emsp;&emsp;-(更新来自@NB-Group)</p>
 						&emsp;&emsp;-笑死，昨天刚修好就又寄了，这次的船新版本绝对稳定，（理论上）再也不会寄</p>
@@ -2340,6 +2349,7 @@ showcm(event,id,arg) 显示右键菜单，使用方法：oncontextmenu="return s
 		<div class="content" id="win-vscode">
 			<!-- <iframe src="https://github1s.com/" frameborder="0" style="width: 100%; height: 100%;" loading="lazy"></iframe> -->
 		</div>
+		<div class="content" id="win-ubuntu"></div>
 	</div>
 	<div class="window bilibili webapp">
 		<div class="resize-bar"></div>
@@ -2371,10 +2381,28 @@ showcm(event,id,arg) 显示右键菜单，使用方法：oncontextmenu="return s
 			</div>
 		</div>
 		<div class="loadback">
-			<img src="icon/wsa.png" class="icon">
+			<img src="icon/wsa.svg" class="icon">
 		</div>
 		<div class="content" id="win-wsa" style="margin-bottom:auto;">
 			<iframe src="https://android11react.osrc.com/" frameborder="0" style=" width: 100%;height: 100%;" loading="lazy"></iframe>
+		</div>
+	</div>
+	<div class="window ubuntu">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/ubuntu.svg" class="icon">
+			<p>适用于 Ubuntu 的 Windows 子系统</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('ubuntu')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('ubuntu')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('ubuntu')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/ubuntu.svg" class="icon">
+		</div>
+		<div class="content" id="win-wsa" style="margin-bottom:auto;">
+			<iframe src="https://page-osrc-f098d70278d187eb15fec33f71c49868.osrc.com/" frameborder="0" style=" width: 100%;height: 100%;" loading="lazy"></iframe>
 		</div>
 	</div>
 	<div class="window pythonEditor">
